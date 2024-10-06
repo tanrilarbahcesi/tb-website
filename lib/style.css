@@ -64,11 +64,30 @@ a {
     color: white;
     text-decoration: none;
 }
-.main {
-    margin-top: 2rem;
-}
 
 /* SIDEBAR */
+.mobile-menu {
+    user-select: none;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    border: 1px solid #666;
+    border-radius: 1rem;
+    background-color: var(--content-bg-color);
+}
+
+.mobile-menu-content {
+    overflow: hidden;
+    display: hidden;
+    height: 0;
+}
+
+.mmconent-active {
+    display: block;
+    height: fit-content;
+}
+
 .sidebar {
     padding: 0;
 }
@@ -163,6 +182,7 @@ a {
 .img-pos-25 { object-position: 0 25%; }
 .img-pos-50 { object-position: 0 50%; }
 .img-pos-75 { object-position: 0 75%; }
+.img-pos-50-50 { object-position: 50% 50%; }
 
 .numeric-list ol { counter-reset: item; }
 .numeric-list li { display: block; }

@@ -22,17 +22,19 @@
                     </a>
                 </div>
             </div>
-            <div class="row main justify-content-center">
-                <div class="col-7">
+            <div class="row d-md-none d-flex justify-content-center">
+                <div onclick="openMenu()" class="col-11 text-center mt-3 mobile-menu">
+                    MENÜ
+                </div>
+                <div id="mobile-menu" class="col-11 sidebar mobile-menu-content">
+
+                </div>
+            </div>
+            <div class="row main justify-content-center mt-4">
+                <div class="col-md-7 col-11">
                     <div class="row">
-                        <div class="col-12">
-                            <div class="navbar">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div id="content" class="col-8 content"></div>
-                        <div class="col-4 sidebar">
+                        <div id="content" class="col-md-8 col-12 content"></div>
+                        <div id="sidebar" class="col-md-4 col-12 d-md-block d-none sidebar">
                             <div class="about">
                                 <a>Yazar Hakkında</a>
                             </div>
@@ -66,6 +68,7 @@
                                             <a href="?sayfa=/yazilar/farkindalik-ve-meditasyonu"><li>Farkındalık ve Meditasyonu</li></a>
                                             <a href="?sayfa=/yazilar/korkudan-kurtulus"><li>Korkudan Kurtuluş</li></a>
                                             <a href="?sayfa=/yazilar/aklin-bedeli"><li>Aklın Bedeli</li></a>
+                                            <a href="?sayfa=/yazilar/enerjinin-dogasi-varolus"><li>Enerjinin Doğası: Varoluş</li></a>
                                         </ul>
                                     </li>
                                 </ul>
