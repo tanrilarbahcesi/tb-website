@@ -91,7 +91,7 @@ a {
 .sidebar {
     padding: 0;
     padding-left: 2rem;
-    padding-right: 2rem;
+    padding-right: 1.5rem;
 }
 .sidebar * {
     color: #ffffffcc;
@@ -168,7 +168,7 @@ a {
 
 /* SIDEBAR ENDS */
 #content {
-    padding-left: 1.5rem;
+    padding-left: 2rem;
     padding-right: 1rem;
 }
 .content {
