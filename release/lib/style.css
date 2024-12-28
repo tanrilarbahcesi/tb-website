@@ -90,13 +90,15 @@ a {
 
 .sidebar {
     padding: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 .sidebar * {
     color: #ffffffcc;
 }
 .sidebar div {
     padding: 1rem;
-    margin: 2rem;
+    margin-bottom: 2rem;
     border: 1px solid #666;
     border-radius: 1rem;
     background-color: var(--content-bg-color);
@@ -165,7 +167,10 @@ a {
 }
 
 /* SIDEBAR ENDS */
-
+#content {
+    padding-left: 1.5rem;
+    padding-right: 1rem;
+}
 .content {
     padding: 2rem;
     margin-bottom: 2rem;
