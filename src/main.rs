@@ -1,6 +1,6 @@
 fn main() {
     let layout = std::fs::read_to_string("pages/layout.html").unwrap();
-    for file in std::fs::read_dir("pages/content").unwrap() {        
+    for file in std::fs::read_dir("pages/content").unwrap() {
         let content = std::fs::read_to_string(file.as_ref().unwrap().path().to_str().unwrap()).unwrap();
         let page = content_reader(content);
         let result_page = layout
@@ -8,9 +8,16 @@ fn main() {
             .replace("{{description}}", &page.description)
             .replace("{{keywords}}", &page.keywords)
             .replace("{{content}}", &page.content);
-        std::fs::write(format!("release/{}", file.as_ref().unwrap().path().file_name().unwrap().to_str().unwrap()), result_page).unwrap();        
+        std::fs::write(format!("release/{}", file.as_ref().unwrap().path().file_name().unwrap().to_str().unwrap()), result_page).unwrap();
     }
-    generate_sitemap();
+
+    //arg for renew sitemap
+    if std::env::args().len() > 1 {
+        if std::env::args().nth(1).unwrap() == "sitemap" {
+            generate_sitemap();
+            return;
+        }
+    }
     println!("Done!");
 }
 
@@ -19,6 +26,14 @@ struct Page {
     description: String,
     keywords: String,
     content: String
+}
+fn content_reader(content: String) -> Page {
+    Page {
+        title: content.lines().next().unwrap().to_string(),
+        description: content.lines().skip(1).next().unwrap().to_string(),
+        keywords: content.lines().skip(2).next().unwrap().to_string(),
+        content: content.lines().skip(3).collect()
+    }
 }
 
 fn generate_sitemap() {
@@ -40,13 +55,4 @@ fn generate_sitemap() {
     sitemap.push_str(r#"
     </urlset>"#);
     std::fs::write(format!("release/sitemap.xml"), sitemap).unwrap();
-}
-
-fn content_reader(content: String) -> Page {
-    Page {
-        title: content.lines().next().unwrap().to_string(),
-        description: content.lines().skip(1).next().unwrap().to_string(),
-        keywords: content.lines().skip(2).next().unwrap().to_string(),
-        content: content.lines().skip(3).collect()
-    }
 }
